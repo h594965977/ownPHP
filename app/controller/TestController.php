@@ -17,10 +17,9 @@ class TestController extends Controller
     public function index()
     {
         $model = new Model();
-        p($model->con);
-        //$sql = 'select * from test';
-       // $a = $model->query($sql);
-       // p($a);
+        $sql = 'select * from `test`';
+        $a = $model->query($sql);
+        p($a->fetchAll());
         //$this->assign('');
         $this->display();
     }
