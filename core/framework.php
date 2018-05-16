@@ -8,6 +8,7 @@
 
 namespace core;
 
+use core\lib\log;
 use core\lib\route;
 
 class framework
@@ -19,6 +20,7 @@ class framework
      */
     static public function run()
     {
+        log::init();
         $route = new route();
         $action = $route->action;
         $controller = $route->controller;
