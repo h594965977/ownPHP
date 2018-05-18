@@ -10,11 +10,15 @@
 namespace App\Controller;
 
 use core\lib\Controller;
+use core\lib\Model;
 
 class TestController extends Controller
 {
     public function index()
     {
+        $model = new Model();
+        p($model);
+        $this->assign('a', 'hello world!');
         $this->display();
     }
 }

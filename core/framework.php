@@ -49,6 +49,7 @@ class framework
             $file = FRAMEWORK . '/' . $className . '.php';
             if (is_file($file)) {
                 include $file;
+                //require FRAMEWORK . '/' . 'vendor/autoload.php';
                 self::$classMap[$className] = $className;
             } else {
                 return false;

@@ -26,8 +26,15 @@ define('MODULE', 'app');
 
 //debug模式
 define('APP_DEBUG', true);
-$debugValue = APP_DEBUG === true ? 'On' : 'Off';
-ini_set('display_errors', $debugValue);
+//$debugValue = APP_DEBUG === true ? 'On' : 'Off';
+//ini_set('display_errors', $debugValue);
+require 'vendor/autoload.php';
+if (APP_DEBUG) {
+    $whoops = new\Whoops\Run();
+    $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler());
+    $whoops->register();
+
+}
 //加载公共函数库
 include CORE . '/common/functions.php';
 

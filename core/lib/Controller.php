@@ -9,6 +9,9 @@
 namespace core\lib;
 
 
+use Twig_Environment;
+use Twig_Loader_Filesystem;
+
 abstract class Controller
 {
     public $assign;
@@ -30,7 +33,14 @@ abstract class Controller
         }
         $viewPath = APP_PATH . '/view/' . $view . '.html';
         if (is_file($viewPath)) {
-            include $viewPath;
+            //extract($this->assign);
+            //include $viewPath;
+            $loader = new Twig_Loader_Filesystem(APP_PATH . '/view');
+            $twig = new Twig_Environment($loader, array(
+                'cache' => FRAMEWORK . '/log',
+            ));
+            $template = $twig->load($view . '.html');
+            $template->display($this->assign ? $this->assign : []);
         } else {
             throw new \Exception('ZHAOBUDAO');
         }
