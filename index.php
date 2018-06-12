@@ -28,12 +28,12 @@ define('MODULE', 'app');
 define('APP_DEBUG', true);
 //$debugValue = APP_DEBUG === true ? 'On' : 'Off';
 //ini_set('display_errors', $debugValue);
+ini_set('default_socket_timeout', -1);
 require 'vendor/autoload.php';
 if (APP_DEBUG) {
     $whoops = new\Whoops\Run();
     $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler());
     $whoops->register();
-
 }
 //加载公共函数库
 include CORE . '/common/functions.php';

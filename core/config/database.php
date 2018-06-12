@@ -15,10 +15,16 @@
 //    ],
 //];
 return [
-    'database_type' => 'mysql',
-    'database_name' => 'homestead',
-    'server' => 'localhost',
-    'username' => 'homestead',
-    'password' => 'secret',
-    'charset' => 'utf8'
+    'MYSQL' => [
+        'database_type' => 'mysql',
+        'database_name' => 'homestead',
+        'server' => 'localhost',
+        'username' => 'homestead',
+        'password' => 'secret',
+        'charset' => 'utf8'
+    ],
+    'REDIS' => [
+
+    ],
+
 ];

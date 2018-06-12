@@ -34,7 +34,7 @@ class Model extends medoo
     public function __construct($options = null)
     {
         try {
-            $options = config::get('database');
+            $options = config::get('database','MYSQL');
             parent::__construct($options);
         } catch (\PDOException $e) {
             //...
